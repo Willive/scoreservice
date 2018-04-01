@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	route        = "/scorer"
+	route        = "/"
 	dbUser       = os.Getenv("DB_USER")
 	userPassword = os.Getenv("DB_PASSWORD")
 	dbhost       = os.Getenv("DB_HOST")
