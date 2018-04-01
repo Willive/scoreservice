@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+
+  score:
+    container_name: score
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+    - 80:80  
+    - 3001:3001
+    - 3306:3306
+    environment:
+    - DB_USER
+    - DB_PASSWORD
+    - DB_NAME
+    - DB_HOST
+    - DB_PORT
+      
