@@ -16,13 +16,15 @@ var (
 	userPassword = os.Getenv("DB_PASSWORD")
 	dbhost       = os.Getenv("DB_HOST")
 	dbport       = os.Getenv("DB_PORT")
-	databaseName = os.Getenv("DB_NAME")
+	dbName       = os.Getenv("DB_NAME")
 	serviceAddr  = "0.0.0.0:3001"
 )
 
 func main() {
 	log.Println("Starting scorer service")
-	db := data.CreateMySQLInstance(dbUser, userPassword, dbhost, dbport, databaseName)
+	log.Printf("CONNECTING TO DATABASE %s @ %s:%s AS %s", dbName, dbhost, dbport, dbUser)
+
+	db := data.CreateMySQLInstance(dbUser, userPassword, dbhost, dbport, dbName)
 	defer db.CloseDb()
 
 	r := mux.NewRouter()
